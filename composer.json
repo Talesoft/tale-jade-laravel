@@ -1,0 +1,26 @@
+{
+    "name": "talesoft/tale-jade-laravel",
+    "description": "A bridge to enable use of the Tale Jade template engine with Laravel",
+    "type": "library",
+    "require": {
+        "talesoft/tale-jade": ">=1.2",
+        "illuminate/support": ">=5.0",
+        "illuminate/view": ">=5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Torben Koehn",
+            "email": "tk@talesoft.io"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tale\\Jade\\Bridge\\Laravel\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
