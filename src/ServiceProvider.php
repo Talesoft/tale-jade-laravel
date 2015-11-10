@@ -5,9 +5,17 @@ namespace Tale\Jade\Bridge\Laravel;
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 use Tale\Jade\Renderer;
 
+/**
+ * Provides the ability to use Jade templates in Laravel.
+ *
+ * {@inheritDoc}
+ */
 class ServiceProvider extends LaravelServiceProvider
 {
 
+    /**
+     * {@inheritDoc}
+     */
     public function register()
     {
 
@@ -17,6 +25,7 @@ class ServiceProvider extends LaravelServiceProvider
         $app['jade'] = $app->share(function($app) {
 
             $app['jade.options'] = array_replace([
+                'paths' => $app['config']['view.paths'],
                 'adapter' => 'file',
                 'adapterOptions' => [
                     'path' => $app['path.storage'].'/jade'
@@ -28,12 +37,18 @@ class ServiceProvider extends LaravelServiceProvider
         });
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function provides()
     {
 
         return ['jade', 'jade.options'];
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function boot()
     {
 
