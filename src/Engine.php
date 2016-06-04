@@ -12,12 +12,12 @@ use Tale\Jade\Renderer;
 class Engine implements EngineInterface
 {
 
-    private $_renderer;
+    private $renderer;
 
     public function __construct(Renderer $renderer)
     {
 
-        $this->_renderer = $renderer;
+        $this->renderer = $renderer;
     }
 
     /**
@@ -26,17 +26,17 @@ class Engine implements EngineInterface
     public function get($path, array $data = array())
     {
 
-        $rendererOptions = $this->_renderer->getOptions();
+        $rendererOptions = $this->renderer->getOptions();
 
         //Strip the include paths
-        foreach ($rendererOptions['compilerOptions']['paths'] as $includePath) {
+        foreach ($rendererOptions['compiler_options']['paths'] as $includePath) {
 
             $len = strlen($includePath);
             if (strncmp($includePath, $path, $len) === 0)
                 $path = substr($path, $len);
         }
 
-        return $this->_renderer->render($path, $data);
+        return $this->renderer->render($path, $data);
     }
 
 }

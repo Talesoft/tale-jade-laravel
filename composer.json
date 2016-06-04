@@ -3,7 +3,7 @@
     "description": "A bridge to enable use of the Tale Jade template engine with Laravel",
     "type": "library",
     "require": {
-        "talesoft/tale-jade": ">=1.2",
+        "talesoft/tale-jade": "^1.4.4",
         "illuminate/support": ">=5.0",
         "illuminate/view": ">=5.0"
     },

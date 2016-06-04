@@ -26,12 +26,8 @@ class ServiceProvider extends LaravelServiceProvider
 
             $app['jade.options'] = array_replace([
                 'paths' => $app['config']['view.paths'],
-                'adapter' => 'file',
-                'adapterOptions' => [
-                    'path' => $app['path.storage'].'/jade'
-                ]],
-                $app['jade.options']
-            );
+                'cache_path' => $app['path.storage'].'/jade'
+            ], $app['jade.options']);
 
             return new Renderer($app['jade.options']);
         });
